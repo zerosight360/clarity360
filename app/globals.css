@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-elevated: #ffffff;
+  --border: #dbdbdb;
+  --border-light: #efefef;
+  --text-primary: #262626;
+  --text-secondary: #8e8e8e;
+  --accent: #0095f6;
+  --accent-hover: #1877f2;
+  --danger: #ed4956;
+  --success: #58c322;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #121212;
+  --bg-elevated: #1c1c1e;
+  --border: #262626;
+  --border-light: #1c1c1e;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a8a8a8;
+  --accent: #0095f6;
+  --accent-hover: #4cb5f9;
+  --danger: #ed4956;
+  --success: #58c322;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar - hidden like mobile apps */
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* Range input */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-light);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Touch */
+.habit-check {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.habit-check:active { transform: scale(0.9); }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Banner */
+.banner-gradient {
+  background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+/* Story ring gradient */
+.story-ring {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  padding: 2px;
+  border-radius: 50%;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Selection */
+::selection { background: rgba(0, 149, 246, 0.15); }
+
+/* Button press effect */
+button:active { opacity: 0.7; }
+
+/* Instagram-style card */
+.ig-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Facebook-style shadow card */
+.fb-card {
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.dark .fb-card {
+  border: 1px solid var(--border);
+  box-shadow: none;
 }
