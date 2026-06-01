@@ -16,8 +16,9 @@ interface StreakChallenge {
 }
 
 const STREAK_PRESETS = [
-  { name: '21 Day Discipline', emoji: '⚡', target: 21 },
-  { name: '30 Day Transform', emoji: '🔥', target: 30 },
+  { name: '14 Day Kickstart', emoji: '⚡', target: 14 },
+  { name: '21 Day Discipline', emoji: '🔥', target: 21 },
+  { name: '30 Day Transform', emoji: '💪', target: 30 },
   { name: '50 Day Warrior', emoji: '⚔️', target: 50 },
   { name: '75 Hard', emoji: '💎', target: 75 },
   { name: '100 Day Challenge', emoji: '🏆', target: 100 },

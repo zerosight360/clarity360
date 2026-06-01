@@ -76,7 +76,7 @@ export default function HabitsPage() {
   const { canUndo, saveSnapshot, undo } = useUndo();
   const [customName, setCustomName] = useState('');
   const [customEmoji, setCustomEmoji] = useState('💪');
-  const [duration, setDuration] = useState<21 | 90>(21);
+  const [duration, setDuration] = useState<14 | 21 | 90>(21);
   const [showAdd, setShowAdd] = useState(false);
 
   const handleAddPreset = (name: string, emoji: string) => {
@@ -129,6 +129,17 @@ export default function HabitsPage() {
           <div className="space-y-4">
             <div className="flex gap-2">
               <button
+                onClick={() => setDuration(14)}
+                className={cn(
+                  'flex-1 py-3 rounded-xl text-sm font-bold transition-all',
+                  duration === 14
+                    ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                )}
+              >
+                ⚡ 14 Days
+              </button>
+              <button
                 onClick={() => setDuration(21)}
                 className={cn(
                   'flex-1 py-3 rounded-xl text-sm font-bold transition-all',
@@ -148,7 +159,7 @@ export default function HabitsPage() {
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
                 )}
               >
-                ⚡ 90 Days
+                👑 90 Days
               </button>
             </div>
 
@@ -245,7 +256,7 @@ export default function HabitsPage() {
 
                 <div className={cn(
                   'grid gap-1.5',
-                  challenge.duration === 21 ? 'grid-cols-7' : 'grid-cols-10 sm:grid-cols-15'
+                  challenge.duration === 14 ? 'grid-cols-7' : challenge.duration === 21 ? 'grid-cols-7' : 'grid-cols-10 sm:grid-cols-15'
                 )}>
                   {Array.from({ length: challenge.duration }, (_, i) => {
                     const dayNum = i + 1;

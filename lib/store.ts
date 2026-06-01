@@ -44,7 +44,7 @@ interface ProductivityStore {
   updateMonthlyReview: (entryId: string, review: string) => void;
 
   // Habit Challenges (21/90 day)
-  addHabitChallenge: (name: string, emoji: string, duration: 21 | 90) => void;
+  addHabitChallenge: (name: string, emoji: string, duration: 14 | 21 | 90) => void;
   toggleChallengeDay: (challengeId: string, day: number) => void;
   removeHabitChallenge: (challengeId: string) => void;
 

@@ -62,12 +62,12 @@ export interface MonthlyEntry {
   };
 }
 
-// 21-day / 90-day Habit Tracker
+// 14/21/90-day Habit Tracker
 export interface HabitChallenge {
   id: string;
   name: string;
   emoji: string;
-  duration: 21 | 90;
+  duration: 14 | 21 | 90;
   startDate: string; // ISO date
   days: { [dayNumber: string]: boolean }; // "1" to "21" or "90"
   createdAt: string;

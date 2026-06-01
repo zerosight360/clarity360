@@ -18,7 +18,7 @@ export function useSearch() {
       const matchNotes = entry.notes.wentWell.toLowerCase().includes(q) ||
         entry.notes.improvements.toLowerCase().includes(q);
       return matchDate || matchPriority || matchTask || matchNotes;
-    });
+    }).sort((a, b) => b.date.localeCompare(a.date));
   }, [query, dailyEntries]);
 
   return { query, setQuery, results };
